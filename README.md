@@ -38,15 +38,25 @@ En zonas rurales y periurbanas, no siempre existen sistemas automatizados para e
 
 ### 📁 Estructura del Repositorio
 
+
+```plaintext
 MIAA_practica1/
 │
-├── data/
-│ └── water_potability.csv
-│
-├── Practica01.ipynb # Notebook principal con análisis completo
-├── git_push.ipynb # Notebook seguro para hacer git push
-├── README.md # Este archivo
-└── .gitignore # Ignora git_push.ipynb y otros archivos sensibles
+├── .git/                      # Carpeta de configuración de Git
+├── data/                      # Dataset original (water_potability.csv)
+├── modelo/                    # Modelos entrenados (.pkl) y scaler
+├── static/                    # Archivos estáticos (imágenes, CSS)
+│   └── images/
+│       ├── utpl2.png
+│       └── potable.jpg
+├── templates/                 # Archivos HTML para Flask (formulario, resultado)
+│   ├── formulario.html
+│   └── resultado.html
+├── .gitignore                 # Ignora archivos sensibles o innecesarios
+├── app_flask.ipynb           # Aplicación web con Flask y despliegue con Ngrok
+├── git_push.ipynb            # Script para autenticación y push a GitHub desde Colab
+├── notebook.ipynb            # Notebook principal: análisis, visualización, entrenamiento
+└── README.md                 # Descripción general del proyecto (este archivo)
 
 
 ---

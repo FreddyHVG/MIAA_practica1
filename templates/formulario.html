@@ -1,0 +1,153 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Formulario - Predicción de potabilidad</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f4f9;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #0c3c78;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header img {
+            height: 80px;
+        }
+        .titulo {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .contenedor {
+            max-width: 800px;
+            margin: 30px auto;
+            background: white;
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        form {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px 30px;
+        }
+        label {
+            font-weight: bold;
+            color: #0c3c78;
+        }
+        input {
+            padding: 6px;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        .campo {
+            display: flex;
+            flex-direction: column;
+        }
+        .descripcion {
+            font-size: 11px;
+            color: #555;
+            margin-top: 2px;
+        }
+        .boton {
+            grid-column: span 2;
+            text-align: center;
+            margin-top: 20px;
+        }
+        input[type="submit"] {
+            background-color: #0c3c78;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+        }
+        .nota {
+            font-size: 12px;
+            color: #888;
+            margin-top: 10px;
+            grid-column: span 2;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='images/utpl2.png') }}" alt="Logo UTPL">
+        <div class="titulo">
+            <h1>UNIVERSIDAD TÉCNICA PARTICULAR DE LOJA</h1>
+            <p>La Universidad Católica de Loja</p>
+            <h2>FACULTAD DE INGENIERÍAS Y ARQUITECTURA</h2>
+            <h2>MAESTRÍA EN INTELIGENCIA ARTIFICIAL APLICADA</h2>
+            <h3>Herramientas para Inteligencia Artificial</h3>
+            <p><strong>Aplicación para predecir potabilización del agua</strong></p>
+            <p>Autor: Freddy Hernán Villota González</p>
+            <p>Docente: M. Sc. Alejandra Cristina González Eras</p>
+            <p>Fecha: 09 de mayo de 2025</p>
+        </div>
+    </header>
+    <div class="contenedor">
+        <form action="/predict">
+            <div class="campo">
+                <label>pH</label>
+                <input name="ph">
+                <div class="descripcion">Nivel de acidez del agua.</div>
+            </div>
+            <div class="campo">
+                <label>Dureza</label>
+                <input name="hardness">
+                <div class="descripcion">Concentración de minerales (Ca y Mg).</div>
+            </div>
+            <div class="campo">
+                <label>Sólidos</label>
+                <input name="solids">
+                <div class="descripcion">Contenido de sólidos disueltos en mg/L.</div>
+            </div>
+            <div class="campo">
+                <label>Cloraminas</label>
+                <input name="chloramines">
+                <div class="descripcion">Nivel de desinfectantes residuales.</div>
+            </div>
+            <div class="campo">
+                <label>Sulfato</label>
+                <input name="sulfate">
+                <div class="descripcion">Cantidad de SO₄²⁻ disuelto en el agua.</div>
+            </div>
+            <div class="campo">
+                <label>Conductividad</label>
+                <input name="conductivity">
+                <div class="descripcion">Capacidad de conducción eléctrica del agua.</div>
+            </div>
+            <div class="campo">
+                <label>Carbono orgánico</label>
+                <input name="organic_carbon">
+                <div class="descripcion">Presencia de materia orgánica disuelta.</div>
+            </div>
+            <div class="campo">
+                <label>Trihalometanos</label>
+                <input name="trihalomethanes">
+                <div class="descripcion">Subproductos de la desinfección con cloro.</div>
+            </div>
+            <div class="campo">
+                <label>Turbidez</label>
+                <input name="turbidity">
+                <div class="descripcion">Medida de partículas suspendidas.</div>
+            </div>
+            <div class="campo">
+                <label>Índice de sales</label>
+                <input name="indice_sales" readonly>
+                <div class="descripcion"><em>Este campo se calcula automáticamente como: sólidos / conductividad.</em></div>
+            </div>
+            <div class="boton">
+                <input type="submit" value="Predecir potabilidad del agua">
+            </div>
+        </form>
+    </div>
+</body>
+</html>
